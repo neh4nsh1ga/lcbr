@@ -1,0 +1,63 @@
+# Example Site settings
+
+description: "A single computer authority."
+
+url: "https://lcbr.f5boy.site"   # 너의 커스텀 도메인
+baseurl: ""
+
+header_pages:
+  - index.md
+  - pages/pages.md
+  - pages/post.md
+  - pages/blog.md
+  - pages/idk.md
+  - pages/about.md
+
+lang: ko
+timezone: Asia/Seoul
+
+footer: 'LCBR은 <a href="https://x.com/ProjMoonStudio/status/1629085293428215808">ProjectMoon의 2차 창작 가이드</a>를 준수합니다.'
+
+plugins:
+  - jekyll-seo-tag
+
+collections:
+  diary:
+    output: true
+
+csp:
+  directives:
+    style-src:
+      - "'self'"
+      - "https://fonts.googleapis.com"
+      - "https://cdn.jsdelivr.net"
+      - "'unsafe-inline'"
+
+    font-src:
+      - "'self'"
+      - "https://fonts.gstatic.com"     
+      - "https://cdn.jsdelivr.net"     
+      - "https://fonts.cdnfonts.com"
+      
+      # style: dark # dark (default) or light or hacker
+# listen_for_clients_preferred_style: true # true or false (default)
+
+# Fonts
+# disable_google_fonts: false # set true to prevent loading fonts.googleapis.com
+
+# Tracking (generic, optional; loads only in production)
+# tracking:
+#   script_src:
+#     - https://analytics.example.com/matomo.js
+#   async: true   # default true
+#   defer: false  # default false
+#   # Optional inline init snippet (requires CSP allowance if used)
+#   # init: |
+#   #   var _paq = window._paq = window._paq || [];
+#   #   _paq.push(['trackPageView']);
+#   #   _paq.push(['enableLinkTracking']);
+#   #   _paq.push(['setTrackerUrl', 'https://analytics.example.com/matomo.php']);
+#   #   _paq.push(['setSiteId', '1']);
+#
+# # Extend CSP to allow your tracker sources (script-src/connect-src/img-src as needed)
+# # csp_extra: "script-src 'self' https://analytics.example.com; connect-src 'self' https://analytics.example.com; img-src 'self' https://analytics.example.com;"

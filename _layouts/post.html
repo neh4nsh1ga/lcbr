@@ -1,0 +1,76 @@
+---
+layout: default
+---
+<article class="post">
+  <h1 class="post-title">{{ page.title }}</h1>
+<time datetime="{{ page.date | date_to_xmlschema }}" class="post-date">
+  posted {{ page.date | date: "%Y-%m-%d" }}
+</time>
+  {% if page.subtitle %}
+  <p class="post-subtitle" style="margin-top: 1em; margin-bottom: 1em;"><i>{{ page.subtitle }}</i></p>
+  {% endif %}
+</article>
+
+{{ content }}
+
+<hr />
+
+{% assign prev = nil %}
+{% assign next = nil %}
+
+{%- if page.collection == "diary" -%}
+  {%- assign items = site.diary | sort: "date" -%}
+
+  {%- assign current_index = nil -%}
+  {%- for p in items -%}
+    {%- if p.url == page.url -%}
+      {%- assign current_index = forloop.index0 -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- if current_index != nil -%}
+    {%- assign prev_index = current_index | minus: 1 -%}
+    {%- assign next_index = current_index | plus: 1 -%}
+
+    {%- if prev_index >= 0 -%}
+      {%- assign prev = items[prev_index] -%}
+    {%- endif -%}
+
+    {%- if next_index < items.size -%}
+      {%- assign next = items[next_index] -%}
+    {%- endif -%}
+  {%- endif -%}
+
+{%- else -%}
+  {%- assign prev = page.previous -%}
+  {%- assign next = page.next -%}
+{%- endif -%}
+
+<nav class="post-nav">
+
+  <div>
+    {% if prev %}
+      <a href="{{ prev.url | relative_url }}">
+        ← Prev / 
+        <strong>{{ prev.title }}</strong><br>
+        {% if prev.subtitle %}
+          <small style="opacity:0.7;">>><i> {{ prev.subtitle }}</i></small>
+        {% endif %}
+      </a>
+    {% endif %}
+  </div>
+
+  <div>
+    {% if next %}
+      <a href="{{ next.url | relative_url }}">
+        <strong>{{ next.title }}</strong>
+         / Next →<br>
+        {% if next.subtitle %}
+        <small style="opacity:0.7;">>><i> {{ next.subtitle }}</i></small>
+        {% endif %}
+      </a>
+    {% endif %}
+  </div>
+
+</nav>
+

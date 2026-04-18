@@ -1,0 +1,35 @@
+/**
+ * Dark theme variables
+ */
+
+@mixin theme() {
+  :root {
+    --base-color: #F8F8F2;
+    --border: dashed 1px rgba(219, 219, 219, 0.9);
+    --selection-background: rgb(120, 120, 127, 0.99);
+    --selection-text: #3f3f3fab;
+    --background-color: #242424;
+    --text-color: var(--base-color);
+    --menu-color: var(--code-color-14);
+    --placeholder-color: var(--base-color);
+    --link-color: var(--base-color);
+    --code-color-1: #6272A4;
+    --code-color-2: #44475A;
+    --code-color-3: #FF5555;
+    --code-color-4: #44475A;
+    --code-color-5: #F8F8F2;
+    --code-color-6: #BD0000;
+    --code-color-7: #F8F8F2;
+    --code-color-8: #F8F8F2;
+    --code-color-9: #F1FA8C;
+    --code-color-10: #F8F8F2;
+    --code-color-11: #44475A;
+    --code-color-12: #F8F8F2;
+    --code-color-13: #f1bf02;
+    --code-color-14: #f1bf02;
+    --code-color-15: #f1bf02;
+    --code-color-16: #BD0000;
+    --code-color-17: #BD0000;
+    --code-color-18: #F8F8F2;
+  }
+}

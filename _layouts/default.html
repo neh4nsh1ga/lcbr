@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: 'ko' }}">
 {%- comment -%}
-  Build a practical CSP. It remains strict by default while allowing
-  common use cases like external images and Google Fonts.
-  If you need to permit additional script/connect sources (e.g., analytics),
-  extend via `csp_extra` in your _config.yml.
+Build a practical CSP. It remains strict by default while allowing
+common use cases like external images and Google Fonts.
+If you need to permit additional script/connect sources (e.g., analytics),
+extend via `csp_extra` in your _config.yml.
 {%- endcomment -%}
 {%- capture csp -%}
 default-src 'none';
@@ -18,18 +18,20 @@ media-src 'self';
 object-src 'none';
 child-src 'self';
 script-src 'self';
+manifest-src 'self';
 {%- endcapture -%}
-{%- capture csp_final -%}{{ csp | strip | replace: '\n', ' ' }} {%- if site.csp_extra %} {{ site.csp_extra }}{%- endif -%}{%- endcapture -%}
+{%- capture csp_final -%}{{ csp | strip | replace: '\n', ' ' }} {%- if site.csp_extra %} {{ site.csp_extra }}{%- endif
+-%}{%- endcapture -%}
 <meta http-equiv="Content-Security-Policy" content="{{ csp_final | strip }}" />
-<meta http-equiv="X-XSS-Protection"  content="1;mode=block" always>
+<meta http-equiv="X-XSS-Protection" content="1;mode=block" always>
 <meta http-equiv="Referrer-Policy" content="no-referrer, strict-origin-when-cross-origin">
 
-  {%- include head.html -%}
+{%- include head.html -%}
 
-  <body>
-    <div class="container">
+<body>
+  <div class="container">
 
-      {%- include header.html -%}
+    {%- include header.html -%}
 
     <main>
       {{ content }}
@@ -37,6 +39,7 @@ script-src 'self';
 
     {%- include footer.html -%}
 
-    </div>
-  </body>
+  </div>
+</body>
+
 </html>

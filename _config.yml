@@ -12,6 +12,7 @@ header_pages:
   - pages/blog.md
   - pages/idk.md
   - pages/about.md
+  - pages/form.md
 
 lang: ko
 timezone: Asia/Seoul

@@ -1,11 +1,23 @@
 ---
-title: /posts
-layout: blog
-permalink: /post
+title: "/세계관"
+layout: default
+permalink: /lore
 ---
 <p align="center">
-<img src="/assets/images/meu.png" width="15%" height="15%"/>
+<img src="/assets/images/lcblogo.png" width="15%" height="15%"/>
 </p>
 
-# /postsimage.png
-Welcome. I’m still piecing myself together.
+# /세계관/LCBR
+### [기밀] LCBR 신규 수감자 행동 지침 및 오리엔테이션
+
+발신: 림버스컴퍼니 LCBR부서 이사 파우스트
+수신: 일련번호 01~12번 신규 수감자 전원
+
+
+**[안내]**
+신규 입사자 여러분, 림버스 컴퍼니에 합류하게 된 것을 환영합니다. 저와 파우스트는 여러분이 이곳에 오기까지의 모든 이력을 알고 있으며, 오직 적합하다는 파우스트와 사측의 판단하에 여러분을 이 버스에 탑승시켰습니다. 본 안내서는 여러분이 앞으로 치러야 할 업무와 이 도시에서 살아남기 위한 최소한의 지침을 담고 있습니다.
+
+파우스트는 여러분이 이 문서를 정독하고 본인의 위치를 정확히 인지하기를 권장하고 있어요. 불필요한 호기심으로 인해 목숨을 낭비하는 것은 파우스트가 보기에 매우 비효율적인 결과니까요. 파우스트는 같은 말을 두 번 반복하는 것을 좋아하지 않으니까요.
+
+
+{% include slider.html %}

@@ -5,9 +5,9 @@
  * Style variables
  */
 $base-font-family: 'JetBrains Mono Hangul', monospace !default;
-$base-font-size: 15px !default;
-$mobile-font-size: 12px !default;
-$base-line-height: 1.5 !default;
+$base-font-size: 16px !default;
+$mobile-font-size: 14px !default;
+$base-line-height: 1.4 !default;
 $container-width: 90% !default;
 $container-max-width: 700px !default;
 
@@ -730,5 +730,206 @@ hr {
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
+  }
+}
+
+/**
+ * Slider
+ */
+.slider {
+  width: 100%;
+  overflow: hidden;
+  border: dashed 1px rgba(219, 219, 219, 0.6);
+  margin: 1.5em auto;
+  position: relative;
+  background-color: #1a1a1a;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+}
+
+.slide {
+  min-width: 100%;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 55%;
+  height: 100%;
+  background-image: url('/assets/images/textbg.png');
+  background-size: 94% 94%;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.9;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.slide-text {
+  width: 50%;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1.5em 2em;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+  max-height: 100%;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.slide-text::-webkit-scrollbar {
+  display: none;
+}
+
+.slide-text h2 {
+  color: #BD0000;
+  margin-top: 1.5em;
+  margin-bottom: 0.1em;
+  font-size: 1.2em;
+  text-align: left;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.slide-text h3 {
+  color: #f1bf02;
+  margin-top: 0;
+  margin-bottom: 0.4em;
+  font-size: 0.85em;
+  text-align: left;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.slide-text h4,
+.slide-text p {
+  color: #F8F8F2;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.5;
+  font-size: 0.75em;
+  text-align: left;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  white-space: normal;
+  word-break: keep-all;
+  /* Prevents Korean words from breaking awkwardly */
+}
+
+/* Slider Navigation */
+.slider-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8em;
+  padding: 0.6em 0;
+  border-top: dashed 1px rgba(219, 219, 219, 0.4);
+  background-color: rgba(36, 36, 36, 0.8);
+}
+
+.slider-btn {
+  background: none;
+  border: dashed 1px rgba(219, 219, 219, 0.6);
+  color: #BD0000;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  cursor: pointer;
+  padding: 0.2em 0.6em;
+  line-height: 1;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.slider-btn:hover {
+  background-color: #f1bf02;
+  color: #242424;
+}
+
+.slider-dots {
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+}
+
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 0;
+  border: dashed 1px rgba(219, 219, 219, 0.6);
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.2s;
+}
+
+.slider-dot.active {
+  background-color: #BD0000;
+  border-color: #BD0000;
+}
+
+.slider-dot:hover {
+  background-color: #BD0000;
+  border-color: #BD0000;
+}
+
+/* Slider mobile */
+@media only screen and (max-device-width: 720px) {
+  .slide-text {
+    width: 55%;
+    padding: 0.8em 1em;
+    background-size: 95% 80%;
+  }
+
+  .slide-text h2 {
+    font-size: 0.95em !important;
+    margin-bottom: 0.3em;
+  }
+
+  .slide-text p {
+    font-size: 0.8em !important;
+    line-height: 1.4;
+  }
+
+  .slider-btn {
+    font-size: $mobile-font-size !important;
+    padding: 0.15em 0.4em;
+  }
+
+  .slider-dot {
+    width: 8px;
+    height: 8px;
   }
 }

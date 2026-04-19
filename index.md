@@ -1,5 +1,5 @@
 ---
-title: /main
+title: /메인
 layout: home
 permalink: /
 ---
@@ -7,7 +7,7 @@ permalink: /
 <img src="assets/images/biglogo.png" width="75%" height="75%"/>
 </p>
 
-# /main/통합문서
+# /메인/통합문서
 still under construction
 
 20↑/4444(청소년 이용불가)

@@ -780,7 +780,7 @@ hr {
   right: 0;
   width: 55%;
   height: 100%;
-  background-image: url('../images/textbg.png');
+  background-image: url('../assets/images/textbg.png');
   background-size: 94% 94%;
   background-position: center;
   background-repeat: no-repeat;
@@ -914,12 +914,17 @@ hr {
   }
 
   .slide-text h2 {
-    font-size: 0.95em !important;
+    font-size: 0.85em !important;
+    margin-bottom: 0.3em;
+  }
+
+  .slide-text h3 {
+    font-size: 0.7em !important;
     margin-bottom: 0.3em;
   }
 
   .slide-text p {
-    font-size: 0.8em !important;
+    font-size: 0.6em !important;
     line-height: 1.4;
   }
 

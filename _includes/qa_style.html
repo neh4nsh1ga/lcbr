@@ -1,0 +1,167 @@
+<style>
+/* 슬라이더 테마를 참고한 컴팩트한 아코디언 디자인 */
+details.qa-item {
+  background-color: #1a1a1a;
+  border: dashed 1px rgba(219, 219, 219, 0.6);
+  margin-bottom: 0.8em;
+  border-radius: 0;
+}
+
+details.qa-item summary {
+  padding: 0.8em 1em;
+  font-size: 0.95em;
+  font-weight: bold;
+  cursor: pointer;
+  list-style: none; /* 기본 화살표 숨김 */
+  color: inherit;
+  display: flex;
+  align-items: center;
+  position: relative;
+  transition: background-color 0.2s;
+}
+
+details.qa-item summary:hover {
+  background-color: rgba(255, 255, 255, 0.05); /* 은은한 호버 */
+}
+
+details.qa-item summary::-webkit-details-marker {
+  display: none;
+}
+
+/* 우측 얇은 화살표 */
+details.qa-item summary::after {
+  content: '▼';
+  position: absolute;
+  right: 1em;
+  color: #78787F;
+  font-size: 0.8em;
+  transition: transform 0.2s ease;
+}
+
+details.qa-item[open] summary::after {
+  transform: rotate(180deg);
+}
+
+details.qa-item[open] summary {
+  border-bottom: dashed 1px rgba(219, 219, 219, 0.6);
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Q 마크 포인트 (빨간색) */
+.q-mark {
+  color: #BD0000;
+  margin-right: 0.5em;
+}
+
+/* 답변 컨텐츠 영역 - 크기 축소 */
+.qa-answer {
+  padding: 1em 1em;
+  line-height: 1.6;
+  font-size: 0.9em;
+  color: inherit;
+}
+
+.qa-answer p {
+  margin-bottom: 0.6em;
+}
+
+.qa-answer p:last-child {
+  margin-bottom: 0;
+}
+
+/* 페이지네이션 UI 스타일 */
+.qa-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 1em;
+  gap: 1em;
+  font-family: inherit;
+}
+
+.qa-page-btn {
+  background: transparent;
+  border: none;
+  color: #78787F;
+  cursor: pointer;
+  font-size: 0.9em;
+  padding: 0.2em 0.5em;
+  transition: color 0.2s;
+}
+
+.qa-page-btn:hover {
+  color: #BD0000;
+}
+
+.qa-page-info {
+  font-size: 0.85em;
+  color: #888;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const items = document.querySelectorAll('.qa-item');
+  const itemsPerPage = 5;
+  
+  if (items.length <= itemsPerPage) return; // 5개 이하면 페이지바 숨김 (비활성화)
+
+  const totalPages = Math.ceil(items.length / itemsPerPage);
+  let currentPage = 1;
+
+  // 페이지네이션 UI 엘리먼트 생성
+  const nav = document.createElement('div');
+  nav.className = 'qa-pagination';
+  nav.innerHTML = `
+    <button class="qa-page-btn qa-prev" aria-label="이전 페이지">◀</button>
+    <div class="qa-page-info"><span id="qa-curr-page">1</span> / ${totalPages}</div>
+    <button class="qa-page-btn qa-next" aria-label="다음 페이지">▶</button>
+  `;
+
+  // 최상단 아코디언 요소 바로 위에 삽입
+  items[0].parentNode.insertBefore(nav, items[0]);
+
+  const updatePage = () => {
+    items.forEach((item, index) => {
+      const start = (currentPage - 1) * itemsPerPage;
+      const end = currentPage * itemsPerPage;
+      
+      // 해당 페이지 범위 안에 있는지 체크
+      if (index >= start && index < end) {
+        item.style.display = 'block';
+      } else {
+        item.style.display = 'none';
+        item.removeAttribute('open'); // 숨길 때 열려있는 탭 닫기
+      }
+    });
+
+    document.getElementById('qa-curr-page').textContent = currentPage;
+    
+    // 버튼 색상 비활성화 처리 (첫 페이지, 마지막 페이지)
+    const prevBtn = nav.querySelector('.qa-prev');
+    const nextBtn = nav.querySelector('.qa-next');
+    
+    prevBtn.style.opacity = currentPage === 1 ? '0.3' : '1';
+    prevBtn.style.cursor = currentPage === 1 ? 'default' : 'pointer';
+    
+    nextBtn.style.opacity = currentPage === totalPages ? '0.3' : '1';
+    nextBtn.style.cursor = currentPage === totalPages ? 'default' : 'pointer';
+  };
+
+  nav.querySelector('.qa-prev').addEventListener('click', () => {
+    if (currentPage > 1) {
+      currentPage--;
+      updatePage();
+    }
+  });
+
+  nav.querySelector('.qa-next').addEventListener('click', () => {
+    if (currentPage < totalPages) {
+      currentPage++;
+      updatePage();
+    }
+  });
+
+  updatePage();
+});
+</script>

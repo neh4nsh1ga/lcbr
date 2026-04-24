@@ -7,7 +7,7 @@ permalink: /
 <img src="assets/images/biglogo.png" width="75%" height="75%"/>
 </p>
 
-# /메인/통합문서
+# /LCBR/메인/통합문서
 still under construction
 
 20↑/4444(청소년 이용불가)

@@ -7,7 +7,7 @@ permalink: /lore
 <img src="/assets/images/lcblogo.png" width="15%" height="15%"/>
 </p>
 
-# /세계관/LCBR
+# /LCBR/메인/통합문서/세계관
 ### [기밀] LCBR 신규 수감자 행동 지침 및 오리엔테이션
 
 발신: 림버스컴퍼니 LCBR부서 이사 파우스트

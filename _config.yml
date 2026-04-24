@@ -13,6 +13,7 @@ header_pages:
   - pages/idk.md
   - pages/about.md
   - pages/form.md
+  - pages/note.md
 
 lang: ko
 timezone: Asia/Seoul
@@ -25,6 +26,8 @@ plugins:
 collections:
   diary:
     output: true
+  note:
+    output: true
 
 csp:
   directives:
@@ -33,6 +36,7 @@ csp:
       - "https://fonts.googleapis.com"
       - "https://cdn.jsdelivr.net"
       - "'unsafe-inline'"
+      - "https://tally.so"
 
     font-src:
       - "'self'"
@@ -42,7 +46,16 @@ csp:
       
     manifest-src:
       - "'self'"
-      # style: dark # dark (default) or light or hacker
+      
+    script-src:
+      - "'self'"
+      - "https://tally.so"
+      - "'unsafe-inline'"
+
+    frame-src:
+      - "'self'"
+      - "https://tally.so"
+    
 # listen_for_clients_preferred_style: true # true or false (default)
 
 # Fonts

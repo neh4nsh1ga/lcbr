@@ -1,8 +1,8 @@
 # Example Site settings
 
-description: "A single computer authority."
+description: "Limbus Company replica"
 
-url: "https://lcbr.f5boy.site"   # 너의 커스텀 도메인
+url: "https://lcbr.f5boy.site"
 baseurl: ""
 
 header_pages:

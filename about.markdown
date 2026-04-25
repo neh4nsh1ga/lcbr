@@ -8,9 +8,9 @@ permalink: /about/
 
 본 웹사이트에 기재된 사항 혹은 사항 이외의 문의사항이 있다면
 
-- 디스코드 [rebe1path](https://discord.com/users/480930947642949653)
-- 트위터 [@F5d4ddy](https://x.com/F5d4ddy)
-- 이메일 [Cyberexodia1@gmail.com](mailto:[cyberexodia1@gmail.com])
+- 디스코드 [404n0n4m3](https://discord.com/users/874302353342365756)
+- 트위터 [@LCBR182190](https://x.com/LCBR182190)
+- 웹 내의 [질문함 페이지](https://lcbr.f5boy.site/ask)
 - 디스코드 서버 내 봇의 /문의 시스템
 
 위 방법 중 편하신 방법으로 연락 부탁드립니다.

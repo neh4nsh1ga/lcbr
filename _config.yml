@@ -1,6 +1,7 @@
 # Example Site settings
 
 description: "Limbus Company replica"
+image: "/assets/images/preview.png" 
 
 url: "https://lcbr.f5boy.site"
 baseurl: ""

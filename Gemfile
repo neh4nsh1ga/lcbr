@@ -9,6 +9,7 @@ gem 'csv'
 gem 'logger'
 gem 'base64'
 gem 'bigdecimal'
+gem 'jekyll-linkpreview'
 gem 'tzinfo'
 gem 'tzinfo-data'
 # Use libsass via jekyll-sass-converter 2.x to avoid Dart Sass

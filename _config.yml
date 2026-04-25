@@ -23,6 +23,7 @@ footer: 'LCBR은 <a href="https://x.com/ProjMoonStudio/status/162908529342821580
 
 plugins:
   - jekyll-seo-tag
+  - jekyll-linkpreview
 
 collections:
   diary:

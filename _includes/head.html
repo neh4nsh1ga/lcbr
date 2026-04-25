@@ -9,10 +9,7 @@
   <meta name="robots" content="{{page.robots}}" />
   {% endif %}
 
-  <!-- Open Graph / Twitter Image Fallback -->
-  <meta property="og:image" content="{{ site.url }}{{ site.image }}" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="{{ site.url }}{{ site.image }}" />
+  {% seo %}
 
   <link rel="icon" type="image/png" href="{{site.baseurl}}/assets/images/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="{{site.baseurl}}/assets/images/favicon.svg" />

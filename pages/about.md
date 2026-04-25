@@ -29,11 +29,14 @@ permalink: /ask
 
 <!-- 1 -->
 <details class="qa-item">
-  <summary><span class="q-mark">Q.</span> test</summary>
-  <div class="qa-answer" markdown="1">
-test
-tes
-test
-<br>setest
+  <summary><span class="q-mark">Q.</span> 원작 캐릭터(기존 수감자 혹은 특정 인물)와의 관계 설정을 짜도 되나요?</summary>
+  <div class="qa-answer" markdown="1"> 원작의 인물과의 직접적인 혈연, 지인 등의 관계 설정은 불가능합니다. 원작 설정에 크게 위배되지 않는 선에서의 간접적인 언급 정도만 허용됩니다.
+  </div>
+</details>
+
+<!-- 2 -->
+<details class="qa-item">
+  <summary><span class="q-mark">Q.</span> 합발제인가요 아니면 선착순인가요?</summary>
+  <div class="qa-answer" markdown="1"> LCBR은 최대 12인으로 운영될 예정으로, 신청서 검토 후 선발을 거치는 합발제입니다.
   </div>
 </details>

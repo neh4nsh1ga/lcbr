@@ -11,6 +11,11 @@
 
   {% seo %}
 
+  <!-- og:image fallback (jekyll-seo-tag가 누락할 경우 보장) -->
+  <meta property="og:image" content="{{ site.url }}/assets/images/preview.png" />
+  <meta name="twitter:image" content="{{ site.url }}/assets/images/preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <link rel="icon" type="image/png" href="{{site.baseurl}}/assets/images/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="{{site.baseurl}}/assets/images/favicon.svg" />
   <link rel="shortcut icon" href="{{site.baseurl}}/assets/images/favicon.ico" />

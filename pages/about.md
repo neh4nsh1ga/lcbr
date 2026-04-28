@@ -40,3 +40,15 @@ permalink: /ask
   <div class="qa-answer" markdown="1"> LCBR은 최대 12인으로 운영될 예정으로, 신청서 검토 후 선발을 거치는 합발제입니다.
   </div>
 </details>
+
+<details class="qa-item">
+  <summary><span class="q-mark">Q.</span> 첫 디코커 러너도 러닝이 가능한가요?</summary>
+  <div class="qa-answer" markdown="1"> 예. 러닝이 당연히 가능합니다! 저희는 자캐 커뮤니티를 모방한 자캐 동맹이기에, 부담 갖지 않으셔도 됩니다.
+  </div>
+</details>
+
+<details class="qa-item">
+  <summary><span class="q-mark">Q.</span> 1.5 차 지인제라고 하였는데 2차는 초대장이 필요한 형식일까요?</summary>
+  <div class="qa-answer" markdown="1"> 아뇨, 필요하지 않습니다. 2차 지인이실 경우, 신청서의 계정 확인란 및 지인 확인란을 잘 읽고 작성해주세요.
+  </div>
+</details>

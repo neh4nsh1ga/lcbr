@@ -252,12 +252,91 @@
       display: none;
       align-items: center;
       gap: 8px;
+      width: max-content;
+      max-width: 90vw;
     }
     .cms-toast.show {
       display: flex;
     }
     .cms-toast-error {
       border-color: #ef4444;
+    }
+
+    /* === Mobile UI Optimization === */
+    @media (max-width: 768px) {
+      /* Custom Modal Mobile Layout */
+      .cms-settings-modal {
+        width: 95%;
+        max-height: 95vh;
+        margin: 10px;
+      }
+      .cms-card-inputs {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        gap: 12px;
+      }
+      .cms-settings-tabs {
+        padding: 0;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+      .cms-settings-tab {
+        padding: 12px;
+        flex: 1;
+        text-align: center;
+      }
+      .cms-settings-body {
+        padding: 16px 12px;
+      }
+      .cms-settings-footer {
+        flex-direction: column-reverse;
+        gap: 8px;
+        padding: 12px;
+      }
+      .cms-btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 14px;
+      }
+      
+      /* Decap CMS Native UI Mobile Overrides */
+      /* Fix header wrapping issues */
+      [class*="AppHeader"] {
+        padding: 8px !important;
+      }
+      [class*="AppHeaderContent"] {
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+      }
+      [class*="AppHeaderButton"] {
+        padding: 8px 12px !important;
+        font-size: 13px !important;
+      }
+      
+      /* Make editor container full width */
+      [class*="EditorContainer"] {
+        padding: 0 !important;
+      }
+      [class*="EditorControlPane"] {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 12px !important;
+      }
+      
+      /* Collection list mobile optimization */
+      [class*="CollectionContainer"] {
+        padding: 10px !important;
+      }
+      [class*="CardContainer"] {
+        width: 100% !important;
+        margin: 0 0 12px 0 !important;
+      }
+      
+      /* Sidebar adjustments */
+      [class*="SidebarContainer"] {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 12px !important;
+      }
     }
   `;
   document.head.appendChild(style);

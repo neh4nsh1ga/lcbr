@@ -8,7 +8,7 @@ extend via `csp_extra` in your _config.yml.
 {%- endcomment -%}
 {%- capture csp -%}
 default-src 'none';
-connect-src 'self';
+connect-src 'self' https://*.netlify.app https://*.netlify.com;
 base-uri 'self';
 form-action 'none';
 img-src 'self' https: data:;
@@ -18,7 +18,7 @@ media-src 'self';
 object-src 'none';
 child-src 'self' https://tally.so;
 frame-src 'self' https://tally.so;
-script-src 'self' 'unsafe-inline' https://tally.so https://cdnjs.cloudflare.com;
+script-src 'self' 'unsafe-inline' https://tally.so https://cdnjs.cloudflare.com https://identity.netlify.com;
 manifest-src 'self';
 {%- endcapture -%}
 {%- capture csp_final -%}{{ csp | strip | replace: '\n', ' ' }} {%- if site.csp_extra %} {{ site.csp_extra }}{%- endif

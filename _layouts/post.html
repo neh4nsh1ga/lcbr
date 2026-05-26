@@ -18,32 +18,37 @@ layout: default
 {% assign prev = nil %}
 {% assign next = nil %}
 
-{%- if page.collection == "diary" -%}
-  {%- assign items = site.diary | sort: "date" -%}
+{%- assign collection_name = page.collection -%}
+{%- if collection_name == "posts" -%}
+  {%- assign all_items = site.posts -%}
+{%- elsif collection_name == "diary" -%}
+  {%- assign all_items = site.diary -%}
+{%- elsif collection_name == "note" -%}
+  {%- assign all_items = site.note -%}
+{%- else -%}
+  {%- assign all_items = "" | split: "" -%}
+{%- endif -%}
 
-  {%- assign current_index = nil -%}
-  {%- for p in items -%}
-    {%- if p.url == page.url -%}
-      {%- assign current_index = forloop.index0 -%}
-    {%- endif -%}
-  {%- endfor -%}
+{%- assign items = all_items | where_exp: "item", "item.unlisted != true" | sort: "date" -%}
 
-  {%- if current_index != nil -%}
-    {%- assign prev_index = current_index | minus: 1 -%}
-    {%- assign next_index = current_index | plus: 1 -%}
+{%- assign current_index = nil -%}
+{%- for p in items -%}
+  {%- if p.url == page.url -%}
+    {%- assign current_index = forloop.index0 -%}
+  {%- endif -%}
+{%- endfor -%}
 
-    {%- if prev_index >= 0 -%}
-      {%- assign prev = items[prev_index] -%}
-    {%- endif -%}
+{%- if current_index != nil -%}
+  {%- assign prev_index = current_index | minus: 1 -%}
+  {%- assign next_index = current_index | plus: 1 -%}
 
-    {%- if next_index < items.size -%}
-      {%- assign next = items[next_index] -%}
-    {%- endif -%}
+  {%- if prev_index >= 0 -%}
+    {%- assign prev = items[prev_index] -%}
   {%- endif -%}
 
-{%- else -%}
-  {%- assign prev = page.previous -%}
-  {%- assign next = page.next -%}
+  {%- if next_index < items.size -%}
+    {%- assign next = items[next_index] -%}
+  {%- endif -%}
 {%- endif -%}
 
 <nav class="post-nav">

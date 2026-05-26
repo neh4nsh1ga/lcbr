@@ -6,9 +6,10 @@ layout: default
 {% assign contentwonl = content | strip_newlines %} {% unless contentwonl == "" %} <br /> {% endunless %}
 <!-- add line break if there is any content -->
 
-{%- if site.note.size > 0 -%}
+{%- assign visible_posts = site.note | where_exp: "item", "item.unlisted != true" -%}
+{%- if visible_posts.size > 0 -%}
 <ul class="diary-list">
-  {%- for post in site.note -%}
+  {%- for post in visible_posts -%}
   <li class="diary-item">
     <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
     {% if post.subtitle %}

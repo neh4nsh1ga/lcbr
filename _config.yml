@@ -7,15 +7,6 @@ image: "/assets/images/preview.png"
 url: "https://lcbr.f5boy.site"
 baseurl: ""
 
-header_pages:
-  - index.md
-  - pages/pages.md
-  - pages/post.md
-  - pages/blog.md
-  - pages/idk.md
-  - pages/about.md
-  - pages/form.md
-  - pages/note.md
 
 lang: ko
 timezone: Asia/Seoul
@@ -54,6 +45,7 @@ csp:
       - "'self'"
       - "https://tally.so"
       - "'unsafe-inline'"
+      - "https://cdnjs.cloudflare.com"
 
     frame-src:
       - "'self'"

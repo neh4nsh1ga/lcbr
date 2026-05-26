@@ -1,0 +1,120 @@
+# config.yml
+
+backend:
+  name: git-gateway
+  branch: main # 실제 레포 브랜치 이름 필요 시 수정할것
+
+# 로컬 프록시서버
+local_backend: true
+
+# 이미지 폴더
+media_folder: 'assets/images'
+public_folder: '/assets/images'
+
+
+collections:
+  - name: 'settings'
+    label: '설정 (Settings)'
+    files:
+      - name: 'general'
+        label: '공통 설정 (General)'
+        file: '_data/settings.yml'
+        fields:
+          - { label: '사이트 제목 (Site Title)', name: 'title', widget: 'string', required: false }
+          - { label: '사이트 설명 (Site Description)', name: 'description', widget: 'string', required: false }
+          - { label: '대표 이미지 (Site Image)', name: 'image', widget: 'image', required: false }
+          - { label: '헤더 제목 (Header Title)', name: 'header_title', widget: 'string', required: true }
+          - { label: '푸터 내용 (Footer Content)', name: 'footer_content', widget: 'text', required: true }
+
+  - name: 'main'
+    label: '메인'
+    files:
+      - name: 'main'
+        label: '메인 페이지 (main page)'
+        file: 'index.md'
+        editor:
+          preview: true
+        fields:
+          - { label: '제목 (Title)', name: 'title', widget: 'string' }
+          - label: '레이아웃 (Layout)'
+            name: 'layout'
+            widget: 'select'
+            options: ['default', 'page', 'home']
+            default: 'default'
+          - label: '영구 링크 (Permalink)'
+            name: 'permalink'
+            widget: 'string'
+            required: true
+            pattern: ['^/.*', '영구 링크는 슬래시(/)로 시작해야 합니다. 예: /about 또는 /about/']
+          - { label: '본문 (Body)', name: 'body', widget: 'markdown' }
+
+  - name: 'blog'
+    label: '블로그 포스트 (Blog)'
+    folder: '_posts'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    editor:
+      preview: true
+    fields:
+      - { label: '레이아웃 (Layout)', name: 'layout', widget: 'hidden', default: 'post' }
+      - { label: '제목 (Title)', name: 'title', widget: 'string' }
+      - { label: '부제목 (Subtitle)', name: 'subtitle', widget: 'string', required: false }
+      - { label: '게시일 (Date)', name: 'date', widget: 'datetime', format: 'YYYY-MM-DD HH:mm:ss ZZ' }
+      - { label: '카테고리 (Categories)', name: 'categories', widget: 'string', required: false }
+      - { label: '공개 여부 (Published)', name: 'published', widget: 'boolean', default: true, required: false }
+      - { label: '목록에서 숨기기 (Unlisted)', name: 'unlisted', widget: 'boolean', default: false, required: false }
+      - { label: '비밀번호 (Password)', name: 'password', widget: 'string', required: false, hint: '입력하면 비밀글이 됩니다.' }
+      - { label: '본문 (Body)', name: 'body', widget: 'markdown' }
+
+  - name: 'diary'
+    label: '다이어리 (Diary)'
+    folder: '_diary'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    editor:
+      preview: true
+    fields:
+      - { label: '레이아웃 (Layout)', name: 'layout', widget: 'hidden', default: 'post' }
+      - { label: '제목 (Title)', name: 'title', widget: 'string' }
+      - { label: '부제목 (Subtitle)', name: 'subtitle', widget: 'string', required: false }
+      - { label: '영구 링크 (Permalink)', name: 'permalink', widget: 'string', required: false, pattern: ['.+/', '영구 링크는 마지막에 슬래시(/)를 포함해야 합니다. 예: system/01/'] }
+      - { label: '공개 여부 (Published)', name: 'published', widget: 'boolean', default: true, required: false }
+      - { label: '목록에서 숨기기 (Unlisted)', name: 'unlisted', widget: 'boolean', default: false, required: false }
+      - { label: '비밀번호 (Password)', name: 'password', widget: 'string', required: false, hint: '입력하면 비밀글이 됩니다.' }
+      - { label: '본문 (Body)', name: 'body', widget: 'markdown' }
+
+  - name: 'note'
+    label: '노트 (Note)'
+    folder: '_note'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    editor:
+      preview: true
+    fields:
+      - { label: '레이아웃 (Layout)', name: 'layout', widget: 'hidden', default: 'post' }
+      - { label: '제목 (Title)', name: 'title', widget: 'string' }
+      - { label: '부제목 (Subtitle)', name: 'subtitle', widget: 'string', required: false }
+      - { label: '영구 링크 (Permalink)', name: 'permalink', widget: 'string', required: false, pattern: ['.+/', '영구 링크는 마지막에 슬래시(/)를 포함해야 합니다. 예: post/test/'] }
+      - { label: '공개 여부 (Published)', name: 'published', widget: 'boolean', default: true, required: false }
+      - { label: '목록에서 숨기기 (Unlisted)', name: 'unlisted', widget: 'boolean', default: false, required: false }
+      - { label: '비밀번호 (Password)', name: 'password', widget: 'string', required: false, hint: '입력하면 비밀글이 됩니다.' }
+      - { label: '본문 (Body)', name: 'body', widget: 'markdown' }
+
+
+  - name: 'pages'
+    label: '페이지 (Pages)'
+    folder: 'pages'
+    create: true
+    slug: '{{slug}}'
+    editor:
+      preview: true
+    fields:
+      - { label: '제목 (Title)', name: 'title', widget: 'string' }
+      - { label: '레이아웃 (Layout)', name: 'layout', widget: 'select', options: ['default', 'page', 'home', 'blog', 'note', 'post'], default: 'default' }
+      - { label: '영구 링크 (Permalink)', name: 'permalink', widget: 'string', required: true, pattern: ['^/.*', '영구 링크는 슬래시(/)로 시작해야 합니다. 예: /about'] }
+      - { label: '메뉴에 표시 (Show in Menu)', name: 'show_in_menu', widget: 'boolean', default: true, required: false }
+      - { label: '메뉴 순서 (Menu Order)', name: 'menu_order', widget: 'number', value_type: 'int', default: 10, required: false }
+      - { label: '공개 여부 (Published)', name: 'published', widget: 'boolean', default: true, required: false }
+      - { label: '목록에서 숨기기 (Unlisted)', name: 'unlisted', widget: 'boolean', default: false, required: false }
+      - { label: '비밀번호 (Password)', name: 'password', widget: 'string', required: false, hint: '입력하면 비밀글이 됩니다.' }
+      - { label: '본문 (Body)', name: 'body', widget: 'markdown' }

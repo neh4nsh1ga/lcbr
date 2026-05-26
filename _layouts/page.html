@@ -3,3 +3,22 @@ layout: default
 ---
 
 {{ content }}
+{% assign contentwonl = content | strip_newlines %} {% unless contentwonl == "" %} <br /> {% endunless %}
+<!-- add line break if there is any content -->
+
+{%- assign visible_posts = site.diary | where_exp: "item", "item.unlisted != true" -%}
+{%- if visible_posts.size > 0 -%}
+<ul class="diary-list">
+    {%- for post in visible_posts -%}
+    <li class="diary-item">
+        <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        {% if post.subtitle %}
+        <br />
+        <small><em>
+                <p style='line-height:2em'> - {{ post.subtitle | escape }}</p>
+            </em></small>
+        {% endif %}
+    </li>
+    {%- endfor -%}
+</ul>
+{%- endif -%}
